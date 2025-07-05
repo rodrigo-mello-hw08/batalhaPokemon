@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.ChoqueDoTrovao;
+import br.com.cwi.movimento.AtaqueRapido;
 import br.com.cwi.tipos.Eletrico;
 
 public class Pikachu extends Pokemon {
@@ -12,7 +12,7 @@ public class Pikachu extends Pokemon {
     private static final int VELOCIDADE = 90;
 
     public Pikachu() {
-        super(status(), new ChoqueDoTrovao(), new Eletrico());
+        super(status(), new AtaqueRapido(), new Eletrico());
     }
 
     private static Status status() {
@@ -20,7 +20,7 @@ public class Pikachu extends Pokemon {
     }
 
     @Override
-    public String toString() {
+    public String falar() {
         return "Pikachu";
     }
 }
