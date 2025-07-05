@@ -1,26 +1,28 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.Ataque;
-import br.com.cwi.ataque.TipoAtaque;
+import br.com.cwi.movimento.Movimento;
+import br.com.cwi.movimento.TipoMovimento;
 import br.com.cwi.tipos.Tipo;
 
 public abstract class Pokemon {
     private static final double MODIFICADOR_BASE_DANO = 0.5;
     private Status status;
     private boolean derrotado;
-    private Ataque ataque;
+    private Movimento movimento;
     private Tipo tipo;
 
-    public Pokemon(Status status, Ataque ataque, Tipo tipo) {
+    public Pokemon(Status status, Movimento movimento, Tipo tipo) {
         this.status = status;
         this.derrotado = false;
-        this.ataque = ataque;
+        this.movimento = movimento;
         this.tipo = tipo;
     }
 
+    public abstract String falar();
+
     public int calcularDano(Pokemon adversario) {
-        int danoAtaque = this.ataque.getPoder();
-        double coeficiente = TipoAtaque.coeficienteAtaqueDefesa(this, adversario);
+        int danoAtaque = this.movimento.getPoder();
+        double coeficiente = TipoMovimento.coeficienteAtaqueDefesa(this, adversario);
         boolean pokemonTemVantagem = this.tipo.temVantagemSobre(adversario.getTipo());
         int multiplicadorVantagem = pokemonTemVantagem ? Tipo.MULTIPLICADOR_SUPER_EFETIVO : Tipo.MULTIPLICADOR;
 
@@ -41,8 +43,8 @@ public abstract class Pokemon {
         return status;
     }
 
-    public Ataque getAtaque() {
-        return ataque;
+    public Movimento getAtaque() {
+        return movimento;
     }
 
     public Tipo getTipo() {

@@ -1,13 +1,13 @@
-package br.com.cwi.ataque;
+package br.com.cwi.movimento;
 
 import br.com.cwi.pokemon.Pokemon;
 
-public enum TipoAtaque {
+public enum TipoMovimento {
     FISICO, ESPECIAL;
 
     public static double coeficienteAtaqueDefesa(Pokemon pokemonAtacante, Pokemon pokemonDefesa) {
-        TipoAtaque tipoAtaque = pokemonAtacante.getAtaque().getTipoAtaque();
-        switch (tipoAtaque) {
+        TipoMovimento tipoMovimento = pokemonAtacante.getAtaque().getTipoAtaque();
+        switch (tipoMovimento) {
             case FISICO:
                 return (double) pokemonAtacante.getStatus().getAtaque() / pokemonDefesa.getStatus().getDefesa();
             case ESPECIAL:

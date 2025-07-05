@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.Brasas;
+import br.com.cwi.movimento.Brasas;
 import br.com.cwi.tipos.Fogo;
 
 public class Charmander extends Pokemon {
@@ -20,7 +20,7 @@ public class Charmander extends Pokemon {
     }
 
     @Override
-    public String toString() {
+    public String falar() {
         return "Charmander";
     }
 }

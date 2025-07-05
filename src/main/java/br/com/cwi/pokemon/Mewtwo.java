@@ -1,6 +1,7 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.RaioPsiquico;
+import br.com.cwi.movimento.Movimento;
+import br.com.cwi.movimento.RaioPsiquico;
 import br.com.cwi.tipos.Psiquico;
 
 public class Mewtwo extends Pokemon {
@@ -20,7 +21,7 @@ public class Mewtwo extends Pokemon {
     }
 
     @Override
-    public String toString() {
-        return "Mewtwo";
+    public String falar() {
+        return "Mewtwo"; //Todo: alterar fala
     }
 }

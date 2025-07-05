@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.FolhaNavalha;
+import br.com.cwi.movimento.FolhaNavalha;
 import br.com.cwi.tipos.Grama;
 
 public class Bulbassauro extends Pokemon {
@@ -20,7 +20,7 @@ public class Bulbassauro extends Pokemon {
     }
 
     @Override
-    public String toString() {
+    public String falar() {
         return "Bulbassauro";
     }
 }

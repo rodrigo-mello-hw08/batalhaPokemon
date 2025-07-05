@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.ataque.Bolhas;
+import br.com.cwi.movimento.Bolhas;
 import br.com.cwi.tipos.Agua;
 
 public class Squirtle extends Pokemon {
@@ -20,7 +20,7 @@ public class Squirtle extends Pokemon {
     }
 
     @Override
-    public String toString() {
+    public String falar() {
         return "Squirtle";
     }
 }
