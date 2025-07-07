@@ -6,13 +6,13 @@ import br.com.cwi.tipos.Tipo;
 
 public abstract class Pokemon {
     private static final double MODIFICADOR_BASE_DANO = 0.5;
-    private Status status;
+    private Atributo atributo;
     private boolean derrotado;
     private Movimento movimento;
     private Tipo tipo;
 
-    public Pokemon(Status status, Movimento movimento, Tipo tipo) {
-        this.status = status;
+    public Pokemon(Atributo atributo, Movimento movimento, Tipo tipo) {
+        this.atributo = atributo;
         this.derrotado = false;
         this.movimento = movimento;
         this.tipo = tipo;
@@ -31,16 +31,16 @@ public abstract class Pokemon {
     }
 
     public void receberAtaque(int dano) {
-        this.status.setPontosDeSaude(this.status.getPontosDeSaude() - dano);
-        this.derrotado = this.status.getPontosDeSaude() <=0;
+        this.atributo.setPontosDeSaude(this.atributo.getPontosDeSaude() - dano);
+        this.derrotado = this.atributo.getPontosDeSaude() <=0;
     }
 
     public boolean pokemonDerrotado() {
         return this.derrotado;
     }
 
-    public Status getStatus() {
-        return status;
+    public Atributo getStatus() {
+        return atributo;
     }
 
     public Movimento getAtaque() {
@@ -52,6 +52,6 @@ public abstract class Pokemon {
     }
 
     public int getVelocidadePokemon() {
-        return this.status.getVelocidade();
+        return this.atributo.getVelocidade();
     }
 }

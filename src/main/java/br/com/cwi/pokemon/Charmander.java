@@ -15,8 +15,8 @@ public class Charmander extends Pokemon {
         super(status(), new Brasas(), new Fogo());
     }
 
-    private static Status status() {
-        return new Status(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
+    private static Atributo status() {
+        return new Atributo(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
     }
 
     @Override

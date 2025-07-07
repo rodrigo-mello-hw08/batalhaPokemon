@@ -12,6 +12,10 @@ public class Treinador {
     private List<Pokemon> pokemons = new ArrayList<>();
     private Item item;
 
+    public Treinador(String nome) {
+        this.nome = nome;
+    }
+
     public Treinador(String nome, Item item) {
         this.nome = nome;
         this.item = item;
@@ -32,12 +36,16 @@ public class Treinador {
         pokemons.removeIf(Pokemon::pokemonDerrotado);
     }
 
-    public Pokemon obterPrimeiroPokemon() {
+    public Pokemon obterPokemonAtivo() {
         return pokemons.get(0);
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public Item getItem() {
+        return item;
     }
 
     @Override
@@ -50,5 +58,10 @@ public class Treinador {
     @Override
     public int hashCode() {
         return Objects.hashCode(getNome());
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

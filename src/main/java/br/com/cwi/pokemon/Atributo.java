@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-public class Status {
+public class Atributo {
     private int pontosDeSaude;
     private int ataque;
     private int defesa;
@@ -8,7 +8,7 @@ public class Status {
     private int defesaEspecial;
     private int velocidade;
 
-    public Status(int pontosDeSaude, int ataque, int defesa, int ataqueEspecial, int defesaEspecial, int velocidade) {
+    public Atributo(int pontosDeSaude, int ataque, int defesa, int ataqueEspecial, int defesaEspecial, int velocidade) {
         this.pontosDeSaude = pontosDeSaude;
         this.ataque = ataque;
         this.defesa = defesa;
@@ -25,8 +25,16 @@ public class Status {
         return pontosDeSaude;
     }
 
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
     public int getAtaque() {
         return ataque;
+    }
+
+    public void setAtaqueEspecial(int ataqueEspecial) {
+        this.ataqueEspecial = ataqueEspecial;
     }
 
     public int getAtaqueEspecial() {
