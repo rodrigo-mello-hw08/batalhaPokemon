@@ -109,7 +109,7 @@ Os Pokémons podem utilizar movimentos durantes as batalhas para causar dano a s
 
 Todo movimento possui um nível de ***Poder*** (que pode variar entre 0 e 100) e uma categoria **TipoMovimento** (que pode ser ESPECIAL ou FISICO)
 
-No caso de movimentos **físicos**, os atributos *ataque* e *defesa* são levados em consideração, e no caso de movimentos especiais os atributos de *ataqueEspecial* e *defesaEspecial* serão levados em consideração
+No caso de movimentos **físicos**, os atributos *ataque* e *defesa* são levados em consideração, e no caso de movimentos especiais, os atributos de *ataqueEspecial* e *defesaEspecial* serão levados em consideração
 
 # Tipos
 ![](https://static.tvtropes.org/pmwiki/pub/images/pokemon_1stgen.jpg)
@@ -124,7 +124,7 @@ São eles:
 - Água (vantagem contra Fogo)
 - Eletrico (vantagem contra Água)
 
-Caso um Pokémon que esta atacando, tenha uma vantagem de tipo sobre o Pokémon que esta defendo, o ***multiplicadorVantagem*** irá assumir o valor **2**, do contrário, assumirá o valor **1**
+Caso um Pokémon que esta atacando, tenha uma vantagem de tipo sobre o Pokémon que esta defendendo, o ***multiplicadorVantagem*** irá assumir o valor **2**, do contrário, assumirá o valor **1**
 
 # **Parte 2**
 ## Treinador
@@ -186,6 +186,8 @@ Turno de acionamento: 1
 
 # **Parte 4**
 # Arena
+![](https://www.pokemon.com/static-assets/content-assets/cms2/img/watch-pokemon-tv/seasons/season15/season15_ep42_ss01.jpg)
+
 A arena é onde dois treinadores pokemon se enfrentam, cada um utilizando seu proprio time de pokemons
 
 Cada treinador utilizará apenas um pokemon por vez, e quando este for derrotado, o próximo de seu time entrará em campo
@@ -203,7 +205,7 @@ public Treinador batalhar(); // retorna o treinador vencedor
 ## Turnos
 Cada turno é definido por uma rodada de ataques entre os pokemons de cada treinador
 
-Para cada turno, o Pokémon que tiver o ***atributo velocidade maior***, deve iniciar atacando primeiro (em caso de empate, o pokemon do primeiro treinador informado no construtor deve atacar primeiro)
+Para cada turno, o Pokémon que tiver o ***atributo velocidade maior***, deve iniciar atacando primeiro
 
 No caso de movimentos do tipo fisico o dano é calculado da seguinte maneira
 
@@ -212,6 +214,10 @@ No caso de movimentos do tipo fisico o dano é calculado da seguinte maneira
 No caso de movimentos do tipo especial o dano é calculado da seguinte maneira
 
     dano = 0.5 * poderDoMovimento * multiplicadorVantagem * (atributoAtaqueEspecialDoAtacante / atributoDefesaEspecialDoDefesor)
+
+## Importante
+- O dano sempre deve ser um valor inteiro, em caso de valores não inteiros, arredondar para cima (Ex: 5.1 se torna 6)
+- Em caso de empate entre os atributos de velocidade, o pokemon do primeiro treinador informado no construtor deve atacar primeiro
 
 ## Exemplos de turno
 
@@ -229,6 +235,19 @@ Escrever ainda
         blue.adicionarAoTime(new Squirtle());
 
         Arena arena = new Arena(red, blue);
+        Treinador vencedor = arena.batalhar();
+        assertEquals(blue, vencedor);
+    }
+
+    @Test
+    public void deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem() {
+        Treinador blue = new Treinador("Blue");
+        blue.adicionarAoTime(new Squirtle());
+
+        Treinador red = new Treinador("Red");
+        red.adicionarAoTime(new Charmander());
+
+        Arena arena = new Arena(blue, red);
         Treinador vencedor = arena.batalhar();
         assertEquals(blue, vencedor);
     }
@@ -282,6 +301,7 @@ Escrever ainda
 
 * Devem existir **obrigatóriamente** na solução entregue testes unitários com os seguintes nomes:
     - deveEncerrarBatalhaComVitoriaDeBlue
+    - deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem
     - deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao
     - deveEncerrarComVitoriaDeRedDevidoAItemApelao
     - deveEncerrarComVitoriaDeBlueDevidoAVelocidadeDePikachu

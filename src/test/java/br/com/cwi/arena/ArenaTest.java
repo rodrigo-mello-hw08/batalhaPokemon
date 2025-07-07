@@ -23,6 +23,19 @@ public class ArenaTest {
     }
 
     @Test
+    public void deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem() {
+        Treinador blue = new Treinador("Blue");
+        blue.adicionarAoTime(new Squirtle());
+
+        Treinador red = new Treinador("Red");
+        red.adicionarAoTime(new Charmander());
+
+        Arena arena = new Arena(blue, red);
+        Treinador vencedor = arena.batalhar();
+        assertEquals(blue, vencedor);
+    }
+
+    @Test
     public void deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao() {
         Treinador red = new Treinador("Red");
         red.adicionarAoTime(new Squirtle());
