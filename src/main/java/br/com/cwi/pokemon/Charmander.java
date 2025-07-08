@@ -1,7 +1,7 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.movimento.Brasas;
-import br.com.cwi.tipos.Fogo;
+import br.com.cwi.pokemon.movimento.Brasas;
+import br.com.cwi.pokemon.tipo.Fogo;
 
 public class Charmander extends Pokemon {
     private static final int PONTOS_DE_SAUDE = 39;
@@ -15,8 +15,8 @@ public class Charmander extends Pokemon {
         super(status(), new Brasas(), new Fogo());
     }
 
-    private static Atributo status() {
-        return new Atributo(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
+    private static Atributos status() {
+        return new Atributos(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
     }
 
     @Override

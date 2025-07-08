@@ -39,7 +39,7 @@ Movimento: ```Brasas(poder=70, TipoMovimento = ESPECIAL)```
 Falar: "Charmander"
 
 ## *Squirtle*
-**Pokémon tartaruga do tipo agua**
+**Pokémon tartaruga do tipo água**
 
 ![](https://pa1.aminoapps.com/7516/1a29b2aefb7546e26e83c79013374f4a84e2abf8r1-500-289_hq.gif)
 
@@ -102,7 +102,7 @@ Todos os Pokémon possuem atributos iniciais, sendo eles:
 - defesaEspecial
 - velocidade
 
-Durante a batalha, o atributo ***pontosDeSaude*** sofrerá alterações a cada ataque que o Pokémon receber de seu adversário
+Durante a batalha, o atributos ***pontosDeSaude*** sofrerá alterações a cada ataque que o Pokémon receber de seu adversário
 
 # Movimentos
 Os Pokémons podem utilizar movimentos durantes as batalhas para causar dano a seus adversários
@@ -151,9 +151,9 @@ void adicionarAoTime(Pokemon pokemon); //adiciona um pokemon ao array/lista de p
 
 E sobreescrever os métodos nativos
 ```java
-public boolean equals(Object o); // utilizar o atributo nome como criterio de comparação
+public boolean equals(Object o); // utilizar o atributos nome como criterio de comparação
 public int hashCode();
-public String toString(); // retornar o atributo nome
+public String toString(); // retornar o atributos nome
 ```
 
 
@@ -174,12 +174,12 @@ Função: Cura em 100 pontos o pokemon (pode ultrapassar o valor inicial de pont
 Turno de acionamento: 3
 
 ## ![](https://img.pokemondb.net/sprites/items/x-attack.png) Ataque X 
-Função: Aumenta em **200** pontos o atributo de ataque do pokemon
+Função: Aumenta em **200** pontos o atributos de ataque do pokemon
 
 Turno de acionamento: 1
 
 ## ![](https://img.pokemondb.net/sprites/items/x-sp-atk.png) Ataque Especial X
-Função: Aumenta em **200** pontos o atributo de ataque especial do pokemon
+Função: Aumenta em **200** pontos o atributos de ataque especial do pokemon
 
 Turno de acionamento: 1
 
@@ -190,7 +190,9 @@ Turno de acionamento: 1
 
 A arena é onde dois treinadores pokemon se enfrentam, cada um utilizando seu proprio time de pokemons
 
-Cada treinador utilizará apenas um pokemon por vez, e quando este for derrotado, o próximo de seu time entrará em campo
+Durante a batalhe, cada treinador utilizará apenas um pokemon por vez, e quando este for derrotado, o próximo Pokémon de seu time entrará em campo
+
+Uma batalha só termina quando todos os Pokémons de um dos dois treinadores forem derrotados
 
 A classe Arena deve implementar o seguinte construtor
 ```java
@@ -203,98 +205,116 @@ public Treinador batalhar(); // retorna o treinador vencedor
 ```
 
 ## Turnos
-Cada turno é definido por uma rodada de ataques entre os pokemons de cada treinador
+Cada turno é definido por uma rodada de ataques entre os pokemons de cada treinador, uma batalha pode ter infinitos turnos
 
-Para cada turno, o Pokémon que tiver o ***atributo velocidade maior***, deve iniciar atacando primeiro
+Para cada turno, o Pokémon que tiver o ***atributo de velocidade maior***, deve iniciar atacando primeiro
 
-No caso de movimentos do tipo fisico o dano é calculado da seguinte maneira
+No caso de movimentos do tipo fisico, o dano é calculado da seguinte maneira
 
     dano = 0.5 * poderDoMovimento * multiplicadorVantagem * (atributoAtaqueDoAtacante / atributoDefesaDoDefesor)
 
-No caso de movimentos do tipo especial o dano é calculado da seguinte maneira
+No caso de movimentos do tipo especial, o dano é calculado da seguinte maneira
 
     dano = 0.5 * poderDoMovimento * multiplicadorVantagem * (atributoAtaqueEspecialDoAtacante / atributoDefesaEspecialDoDefesor)
 
 ## Importante
 - O dano sempre deve ser um valor inteiro, em caso de valores não inteiros, arredondar para cima (Ex: 5.1 se torna 6)
-- Em caso de empate entre os atributos de velocidade, o pokemon do primeiro treinador informado no construtor deve atacar primeiro
+- Em caso de empate entre os atributos de velocidade, o pokemon do primeiro treinador informado no construtor da classe **Arena** deve atacar primeiro
+- A contagem de turnos apenas influencia no uso de itens, elas não determinam o fim da batalha
 
-## Exemplos de turno
+## Exemplo de calculo de dano durante o turno
 
-Escrever ainda
+### Canário: Red e seu charmander batalham contra Blue e squirtle
+Decisão da ordem: 
+
+    Charmander ataca primeiro devido sua velocidade ser maior que squirtle (65 contra 43)
+
+Charmander ataca Squirtle
+
+    33 = (int) 0.5 * 70 (poder) * 1 * (60/64)
+    Charmander ataca Squirtle causando 33 de dano
+    Squirtle fica com 11 de pontos de saúde
+
+Squirtle ataca Charmander
+
+    75 = (int) 0.5 * 75 * 2 * (50/50)
+    Squirtle ataca Charmander causando 75 de dano        
+    Charmander é derrotado pois seus pontos de vida se tornam menor que zero
+
+
 
 
 ## Exemplos de testes
 ```java
-    @Test
-    public void deveEncerrarBatalhaComVitoriaDeBlue() {
-        Treinador red = new Treinador("Red");
-        red.adicionarAoTime(new Charmander());
+@Test
+public void deveEncerrarBatalhaComVitoriaDeBlue() {
+    Treinador red = new Treinador("Red");
+    red.adicionarAoTime(new Charmander());
 
-        Treinador blue = new Treinador("Blue");
-        blue.adicionarAoTime(new Squirtle());
+    Treinador blue = new Treinador("Blue");
+    blue.adicionarAoTime(new Squirtle());
 
-        Arena arena = new Arena(red, blue);
-        Treinador vencedor = arena.batalhar();
-        assertEquals(blue, vencedor);
-    }
+    Arena arena = new Arena(red, blue);
+    Treinador vencedor = arena.batalhar();
+    assertEquals(blue, vencedor);
+}
 
-    @Test
-    public void deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem() {
-        Treinador blue = new Treinador("Blue");
-        blue.adicionarAoTime(new Squirtle());
+@Test
+public void deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem() {
+    Treinador blue = new Treinador("Blue");
+    blue.adicionarAoTime(new Squirtle());
 
-        Treinador red = new Treinador("Red");
-        red.adicionarAoTime(new Charmander());
+    Treinador red = new Treinador("Red");
+    red.adicionarAoTime(new Charmander());
 
-        Arena arena = new Arena(blue, red);
-        Treinador vencedor = arena.batalhar();
-        assertEquals(blue, vencedor);
-    }
+    Arena arena = new Arena(blue, red);
+    Treinador vencedor = arena.batalhar();
+    assertEquals(blue, vencedor);
+}
 
-    @Test
-    public void deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao() {
-        Treinador red = new Treinador("Red");
-        red.adicionarAoTime(new Squirtle());
-        red.adicionarAoTime(new Charmander());
+@Test
+public void deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao() {
+    Treinador red = new Treinador("Red");
+    red.adicionarAoTime(new Squirtle());
+    red.adicionarAoTime(new Charmander());
 
-        Treinador blue = new Treinador("Blue", new Pocao());
-        blue.adicionarAoTime(new Squirtle());
-        blue.adicionarAoTime(new Bulbasaur());
+    Treinador blue = new Treinador("Blue", new Pocao());
+    blue.adicionarAoTime(new Squirtle());
+    blue.adicionarAoTime(new Bulbasaur());
 
-        Arena arena = new Arena(red, blue);
-        Treinador vencedor = arena.batalhar();
-        assertEquals(blue, vencedor);
-    }
+    Arena arena = new Arena(red, blue);
+    Treinador vencedor = arena.batalhar();
+    assertEquals(blue, vencedor);
+}
 
-    @Test
-    public void deveEncerrarComVitoriaDeRedDevidoAItemApelao() {
-        Treinador red = new Treinador("Red", new XAtaqueEspecial());
-        red.adicionarAoTime(new Charmander());
+@Test
+public void deveEncerrarComVitoriaDeRedDevidoAItemApelao() {
+    Treinador red = new Treinador("Red", new XAtaqueEspecial());
+    red.adicionarAoTime(new Charmander());
 
-        Treinador blue = new Treinador("Blue");
-        blue.adicionarAoTime(new Squirtle());
-        blue.adicionarAoTime(new Bulbasaur());
-        blue.adicionarAoTime(new Charmander());
+    Treinador blue = new Treinador("Blue");
+    blue.adicionarAoTime(new Squirtle());
+    blue.adicionarAoTime(new Bulbasaur());
+    blue.adicionarAoTime(new Charmander());
 
-        Arena arena = new Arena(red, blue);
-        Treinador vencedor = arena.batalhar();
-        assertEquals(red, vencedor);
-    }
+    Arena arena = new Arena(red, blue);
+    Treinador vencedor = arena.batalhar();
+    assertEquals(red, vencedor);
+}
 
-    @Test
-    public void deveEncerrarComVitoriaDeBlueDevidoAVelocidadeDePikachu() {
-        Treinador red = new Treinador("Red", new XAtaqueEspecial());
-        red.adicionarAoTime(new Charmander());
+@Test
+public void deveEncerrarComVitoriaDeBlueDevidoAVelocidadeDePikachu() {
+    Treinador red = new Treinador("Red", new XAtaqueEspecial());
+    red.adicionarAoTime(new Charmander());
 
-        Treinador blue = new Treinador("Blue");
-        blue.adicionarAoTime(new Squirtle());
-        blue.adicionarAoTime(new Pikachu());
+    Treinador blue = new Treinador("Blue");
+    blue.adicionarAoTime(new Squirtle());
+    blue.adicionarAoTime(new Pikachu());
 
-        Arena arena = new Arena(red, blue);
-        Treinador vencedor = arena.batalhar();
-        assertEquals(blue, vencedor);
-    }
+    Arena arena = new Arena(red, blue);
+    Treinador vencedor = arena.batalhar();
+    assertEquals(blue, vencedor);
+}
 ```
 
 ## Testes Obrigatórios

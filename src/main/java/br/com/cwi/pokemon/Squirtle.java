@@ -1,7 +1,7 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.movimento.Bolhas;
-import br.com.cwi.tipos.Agua;
+import br.com.cwi.pokemon.movimento.Bolhas;
+import br.com.cwi.pokemon.tipo.Agua;
 
 public class Squirtle extends Pokemon {
     private static final int PONTOS_DE_SAUDE = 44;
@@ -15,8 +15,8 @@ public class Squirtle extends Pokemon {
         super(status(), new Bolhas(), new Agua());
     }
 
-    private static Atributo status() {
-        return new Atributo(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
+    private static Atributos status() {
+        return new Atributos(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
     }
 
     @Override

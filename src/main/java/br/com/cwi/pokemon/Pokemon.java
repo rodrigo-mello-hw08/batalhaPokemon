@@ -1,18 +1,18 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.movimento.Movimento;
-import br.com.cwi.movimento.TipoMovimento;
-import br.com.cwi.tipos.Tipo;
+import br.com.cwi.pokemon.movimento.Movimento;
+import br.com.cwi.pokemon.movimento.TipoMovimento;
+import br.com.cwi.pokemon.tipo.Tipo;
 
 public abstract class Pokemon {
     private static final double MODIFICADOR_BASE_DANO = 0.5;
-    private Atributo atributo;
+    private Atributos atributos;
     private boolean derrotado;
     private Movimento movimento;
     private Tipo tipo;
 
-    public Pokemon(Atributo atributo, Movimento movimento, Tipo tipo) {
-        this.atributo = atributo;
+    public Pokemon(Atributos atributos, Movimento movimento, Tipo tipo) {
+        this.atributos = atributos;
         this.derrotado = false;
         this.movimento = movimento;
         this.tipo = tipo;
@@ -31,16 +31,16 @@ public abstract class Pokemon {
     }
 
     public void receberAtaque(int dano) {
-        this.atributo.setPontosDeSaude(this.atributo.getPontosDeSaude() - dano);
-        this.derrotado = this.atributo.getPontosDeSaude() <=0;
+        this.atributos.setPontosDeSaude(this.atributos.getPontosDeSaude() - dano);
+        this.derrotado = this.atributos.getPontosDeSaude() <=0;
     }
 
     public boolean pokemonDerrotado() {
         return this.derrotado;
     }
 
-    public Atributo getStatus() {
-        return atributo;
+    public Atributos getStatus() {
+        return atributos;
     }
 
     public Movimento getAtaque() {
@@ -52,6 +52,6 @@ public abstract class Pokemon {
     }
 
     public int getVelocidadePokemon() {
-        return this.atributo.getVelocidade();
+        return this.atributos.getVelocidade();
     }
 }

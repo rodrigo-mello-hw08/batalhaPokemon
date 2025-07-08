@@ -1,6 +1,6 @@
-package br.com.cwi.movimento;
+package br.com.cwi.pokemon.movimento;
 
-import static br.com.cwi.movimento.TipoMovimento.ESPECIAL;
+import static br.com.cwi.pokemon.movimento.TipoMovimento.ESPECIAL;
 
 public class Brasas extends Movimento {
     private static final String NOME = "Brasas";

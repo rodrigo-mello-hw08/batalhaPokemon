@@ -1,4 +1,4 @@
-package br.com.cwi.movimento;
+package br.com.cwi.pokemon.movimento;
 
 public abstract class Movimento {
     private String nome;

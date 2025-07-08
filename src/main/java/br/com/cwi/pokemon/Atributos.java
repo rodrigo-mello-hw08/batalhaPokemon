@@ -1,6 +1,6 @@
 package br.com.cwi.pokemon;
 
-public class Atributo {
+public class Atributos {
     private int pontosDeSaude;
     private int ataque;
     private int defesa;
@@ -8,7 +8,7 @@ public class Atributo {
     private int defesaEspecial;
     private int velocidade;
 
-    public Atributo(int pontosDeSaude, int ataque, int defesa, int ataqueEspecial, int defesaEspecial, int velocidade) {
+    public Atributos(int pontosDeSaude, int ataque, int defesa, int ataqueEspecial, int defesaEspecial, int velocidade) {
         this.pontosDeSaude = pontosDeSaude;
         this.ataque = ataque;
         this.defesa = defesa;

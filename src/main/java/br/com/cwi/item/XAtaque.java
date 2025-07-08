@@ -1,7 +1,7 @@
 package br.com.cwi.item;
 
+import br.com.cwi.pokemon.Atributos;
 import br.com.cwi.pokemon.Pokemon;
-import br.com.cwi.pokemon.Atributo;
 
 public class XAtaque extends Item {
     private static int TURNO_ACAO = 3;
@@ -13,8 +13,8 @@ public class XAtaque extends Item {
 
     @Override
     public void usarItem(Pokemon pokemon) {
-        Atributo atributoPokemon = pokemon.getStatus();
-        int novoAtaque = atributoPokemon.getAtaque() + ATAQUE_BONUS;
-        atributoPokemon.setAtaque(novoAtaque);
+        Atributos atributosPokemon = pokemon.getStatus();
+        int novoAtaque = atributosPokemon.getAtaque() + ATAQUE_BONUS;
+        atributosPokemon.setAtaque(novoAtaque);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.cwi.movimento;
+package br.com.cwi.pokemon.movimento;
 
 import br.com.cwi.pokemon.Pokemon;
 

@@ -1,7 +1,7 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.movimento.FolhaNavalha;
-import br.com.cwi.tipos.Grama;
+import br.com.cwi.pokemon.movimento.FolhaNavalha;
+import br.com.cwi.pokemon.tipo.Grama;
 
 public class Bulbasaur extends Pokemon {
     private static final int PONTOS_DE_SAUDE = 45;
@@ -15,8 +15,8 @@ public class Bulbasaur extends Pokemon {
         super(status(), new FolhaNavalha(), new Grama());
     }
 
-    private static Atributo status() {
-        return new Atributo(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
+    private static Atributos status() {
+        return new Atributos(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
     }
 
     @Override

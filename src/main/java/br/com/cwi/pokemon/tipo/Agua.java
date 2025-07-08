@@ -1,4 +1,4 @@
-package br.com.cwi.tipos;
+package br.com.cwi.pokemon.tipo;
 
 public class Agua implements Tipo {
 

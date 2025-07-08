@@ -1,4 +1,4 @@
-package br.com.cwi.tipos;
+package br.com.cwi.pokemon.tipo;
 
 public interface Tipo {
     int MULTIPLICADOR_SUPER_EFETIVO = 2;

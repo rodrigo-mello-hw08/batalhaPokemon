@@ -1,6 +1,6 @@
-package br.com.cwi.movimento;
+package br.com.cwi.pokemon.movimento;
 
-import static br.com.cwi.movimento.TipoMovimento.FISICO;
+import static br.com.cwi.pokemon.movimento.TipoMovimento.FISICO;
 
 public class AtaqueRapido extends Movimento {
     private static final String NOME = "Ataque Rapido";

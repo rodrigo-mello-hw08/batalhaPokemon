@@ -1,7 +1,7 @@
 package br.com.cwi.pokemon;
 
-import br.com.cwi.movimento.AtaqueRapido;
-import br.com.cwi.tipos.Eletrico;
+import br.com.cwi.pokemon.movimento.AtaqueRapido;
+import br.com.cwi.pokemon.tipo.Eletrico;
 
 public class Pikachu extends Pokemon {
     private static final int PONTOS_DE_SAUDE = 35;
@@ -15,8 +15,8 @@ public class Pikachu extends Pokemon {
         super(status(), new AtaqueRapido(), new Eletrico());
     }
 
-    private static Atributo status() {
-        return new Atributo(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
+    private static Atributos status() {
+        return new Atributos(PONTOS_DE_SAUDE, ATAQUE, DEFESA, ATAQUE_ESPECIAL, DEFESA_ESPECIAL, VELOCIDADE);
     }
 
     @Override
