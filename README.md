@@ -247,81 +247,81 @@ Squirtle ataca Charmander
 ## Exemplos de testes
 ```java
 @Test
-public void deveEncerrarBatalhaComVitoriaDeBlue() {
+public void deveEncerrarBatalhaComVitoriaDeAsh() {
     Treinador red = new Treinador("Red");
     red.adicionarAoTime(new Charmander());
-
-    Treinador blue = new Treinador("Blue");
-    blue.adicionarAoTime(new Squirtle());
-
-    Arena arena = new Arena(red, blue);
+  
+    Treinador ash = new Treinador("Ash");
+    ash.adicionarAoTime(new Squirtle());
+  
+    Arena arena = new Arena(red, ash);
     Treinador vencedor = arena.batalhar();
-    assertEquals(blue, vencedor);
+    assertEquals(ash, vencedor);
 }
 
 @Test
-public void deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem() {
-    Treinador blue = new Treinador("Blue");
-    blue.adicionarAoTime(new Squirtle());
-
+public void deveEncerrarBatalhaComVitoriaDeAshMesmoAposInverterAOrdem() {
+    Treinador ash = new Treinador("Ash");
+    ash.adicionarAoTime(new Squirtle());
+  
     Treinador red = new Treinador("Red");
     red.adicionarAoTime(new Charmander());
-
-    Arena arena = new Arena(blue, red);
+  
+    Arena arena = new Arena(ash, red);
     Treinador vencedor = arena.batalhar();
-    assertEquals(blue, vencedor);
+    assertEquals(ash, vencedor);
 }
 
 @Test
-public void deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao() {
-    Treinador red = new Treinador("Red");
+public void deveEncerrarBatalhaComVitoriaDeRedDevidoAPocao() {
+    Treinador ash = new Treinador("Ash");
+    ash.adicionarAoTime(new Squirtle());
+    ash.adicionarAoTime(new Charmander());
+  
+    Treinador red = new Treinador("Red", new Pocao());
     red.adicionarAoTime(new Squirtle());
-    red.adicionarAoTime(new Charmander());
-
-    Treinador blue = new Treinador("Blue", new Pocao());
-    blue.adicionarAoTime(new Squirtle());
-    blue.adicionarAoTime(new Bulbasaur());
-
-    Arena arena = new Arena(red, blue);
+    red.adicionarAoTime(new Bulbasaur());
+  
+    Arena arena = new Arena(ash, red);
     Treinador vencedor = arena.batalhar();
-    assertEquals(blue, vencedor);
+    assertEquals(red, vencedor);
 }
 
 @Test
 public void deveEncerrarComVitoriaDeRedDevidoAItemApelao() {
     Treinador red = new Treinador("Red", new XAtaqueEspecial());
     red.adicionarAoTime(new Charmander());
-
-    Treinador blue = new Treinador("Blue");
-    blue.adicionarAoTime(new Squirtle());
-    blue.adicionarAoTime(new Bulbasaur());
-    blue.adicionarAoTime(new Charmander());
-
-    Arena arena = new Arena(red, blue);
+    
+    Treinador ash = new Treinador("Ash");
+    ash.adicionarAoTime(new Squirtle());
+    ash.adicionarAoTime(new Bulbasaur());
+    ash.adicionarAoTime(new Charmander());
+    
+    Arena arena = new Arena(red, ash);
     Treinador vencedor = arena.batalhar();
     assertEquals(red, vencedor);
 }
 
 @Test
-public void deveEncerrarComVitoriaDeBlueDevidoAVelocidadeDePikachu() {
+public void deveEncerrarComVitoriaDeAshDevidoAVelocidadeDePikachu() {
     Treinador red = new Treinador("Red", new XAtaqueEspecial());
     red.adicionarAoTime(new Charmander());
-
-    Treinador blue = new Treinador("Blue");
-    blue.adicionarAoTime(new Squirtle());
-    blue.adicionarAoTime(new Pikachu());
-
-    Arena arena = new Arena(red, blue);
+    
+    Treinador ash = new Treinador("Ash");
+    ash.adicionarAoTime(new Squirtle());
+    ash.adicionarAoTime(new Pikachu());
+    
+    Arena arena = new Arena(red, ash);
     Treinador vencedor = arena.batalhar();
-    assertEquals(blue, vencedor);
+    assertEquals(ash, vencedor);
 }
 ```
 
 ## Testes Obrigatórios
 
 * Devem existir **obrigatóriamente** na solução entregue testes unitários com os seguintes nomes:
-    - deveEncerrarBatalhaComVitoriaDeBlue
-    - deveEncerrarBatalhaComVitoriaDeBlueMesmoAposInverterAOrdem
-    - deveEncerrarBatalhaComVitoriaDeBlueDevidoAPocao
+    - deveEncerrarBatalhaComVitoriaDeAsh
+    - deveEncerrarBatalhaComVitoriaDeAshMesmoAposInverterAOrdem
+    - deveEncerrarBatalhaComVitoriaDeRedDevidoAPocao
     - deveEncerrarComVitoriaDeRedDevidoAItemApelao
-    - deveEncerrarComVitoriaDeBlueDevidoAVelocidadeDePikachu
+    - deveEncerrarComVitoriaDeAshDevidoAVelocidadeDePikachu
