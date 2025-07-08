@@ -79,10 +79,4 @@ public class ArenaTest {
         assertEquals(blue, vencedor);
     }
 
-    //Todo: escrever cenario com ataque rapido?? se sim colocar no readme
-    //Todo: escrever cenario onde o AtaqueEspecialX é definitivo no vencedor
-    //Todo: escrever cenario onde o AtaqueX é definitivo no vencedor
-    //Todo: escrever cenario onde a Pocao é definitivo no vencedor
-
-
 }
