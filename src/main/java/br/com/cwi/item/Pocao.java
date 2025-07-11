@@ -4,8 +4,8 @@ import br.com.cwi.pokemon.Atributos;
 import br.com.cwi.pokemon.Pokemon;
 
 public class Pocao extends Item {
-    private static int TURNO_ACAO = 3;
-    private static int PONTOS_DE_CURA = 100;
+    private static int TURNO_ACAO = 2;
+    private static int PONTOS_DE_CURA = 50;
 
     public Pocao() {
         super(TURNO_ACAO);
@@ -15,6 +15,10 @@ public class Pocao extends Item {
     public void usarItem(Pokemon pokemon) {
         Atributos atributosPokemon = pokemon.getStatus();
         int novaSaude = atributosPokemon.getPontosDeSaude() + PONTOS_DE_CURA;
-        atributosPokemon.setPontosDeSaude(novaSaude);
+        if (novaSaude >= atributosPokemon.getPontosDeSaudeMax()) {
+            atributosPokemon.setPontosDeSaude(atributosPokemon.getPontosDeSaudeMax());
+        } else {
+            atributosPokemon.setPontosDeSaude(novaSaude);
+        }
     }
 }

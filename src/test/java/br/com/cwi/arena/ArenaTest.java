@@ -39,11 +39,9 @@ public class ArenaTest {
     public void deveEncerrarBatalhaComVitoriaDeRedDevidoAPocao() {
         Treinador ash = new Treinador("Ash");
         ash.adicionarAoTime(new Squirtle());
-        ash.adicionarAoTime(new Charmander());
 
         Treinador red = new Treinador("Red", new Pocao());
         red.adicionarAoTime(new Squirtle());
-        red.adicionarAoTime(new Bulbasaur());
 
         Arena arena = new Arena(ash, red);
         Treinador vencedor = arena.batalhar();

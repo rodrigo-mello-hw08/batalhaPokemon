@@ -1,6 +1,7 @@
 package br.com.cwi.pokemon;
 
 public class Atributos {
+    private int pontosDeSaudeMax;
     private int pontosDeSaude;
     private int ataque;
     private int defesa;
@@ -9,12 +10,17 @@ public class Atributos {
     private int velocidade;
 
     public Atributos(int pontosDeSaude, int ataque, int defesa, int ataqueEspecial, int defesaEspecial, int velocidade) {
+        this.pontosDeSaudeMax = pontosDeSaude;
         this.pontosDeSaude = pontosDeSaude;
         this.ataque = ataque;
         this.defesa = defesa;
         this.ataqueEspecial = ataqueEspecial;
         this.defesaEspecial = defesaEspecial;
         this.velocidade = velocidade;
+    }
+
+    public int getPontosDeSaudeMax() {
+        return pontosDeSaudeMax;
     }
 
     public void setPontosDeSaude(int pontosDeSaude) {
