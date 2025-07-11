@@ -171,7 +171,7 @@ void usarItem(Pokemon pokemon);
 
 Função: Cura em 50 pontos o pokemon, não podendo ultrapassar o valor inicial de pontos de vida.
 
-Turno de acionamento: 3
+Turno de acionamento: 2
 
 ## ![](https://img.pokemondb.net/sprites/items/x-attack.png) Ataque X 
 Função: Aumenta em **200** pontos o atributos de ataque do pokemon.
@@ -190,7 +190,7 @@ Turno de acionamento: 1
 
 A arena é onde dois treinadores pokemon se enfrentam, cada um utilizando seu próprio time de pokemons.
 
-Durante a batalhA, cada treinador utilizará apenas um pokemon por vez, e quando este for derrotado, o próximo Pokémon de seu time entrará em campo.
+Durante a batalha, cada treinador utilizará apenas um pokemon por vez, e quando este for derrotado, o próximo Pokémon de seu time entrará em campo.
 
 Uma batalha só termina quando todos os Pokémons de um dos dois treinadores forem derrotados.
 
