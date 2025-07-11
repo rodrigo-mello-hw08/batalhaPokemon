@@ -169,7 +169,7 @@ void usarItem(Pokemon pokemon);
 
 ## ![](https://img.pokemondb.net/sprites/items/potion.png) Poção
 
-Função: Cura em 100 pontos o pokemon, não podendo ultrapassar o valor inicial de pontos de vida.
+Função: Cura em 50 pontos o pokemon, não podendo ultrapassar o valor inicial de pontos de vida.
 
 Turno de acionamento: 3
 
