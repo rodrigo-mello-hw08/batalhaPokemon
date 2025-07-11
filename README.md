@@ -169,7 +169,7 @@ void usarItem(Pokemon pokemon);
 
 ## ![](https://img.pokemondb.net/sprites/items/potion.png) Poção
 
-Função: Cura em 100 pontos o pokemon, podendo ultrapassar o valor inicial de pontos de vida.
+Função: Cura em 100 pontos o pokemon, não podendo ultrapassar o valor inicial de pontos de vida.
 
 Turno de acionamento: 3
 
@@ -276,11 +276,9 @@ public void deveEncerrarBatalhaComVitoriaDeAshMesmoAposInverterAOrdem() {
 public void deveEncerrarBatalhaComVitoriaDeRedDevidoAPocao() {
     Treinador ash = new Treinador("Ash");
     ash.adicionarAoTime(new Squirtle());
-    ash.adicionarAoTime(new Charmander());
   
     Treinador red = new Treinador("Red", new Pocao());
     red.adicionarAoTime(new Squirtle());
-    red.adicionarAoTime(new Bulbasaur());
   
     Arena arena = new Arena(ash, red);
     Treinador vencedor = arena.batalhar();
