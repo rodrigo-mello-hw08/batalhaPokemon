@@ -174,12 +174,12 @@ Função: Cura em 50 pontos o pokemon, não podendo ultrapassar o valor inicial 
 Turno de acionamento: 2
 
 ## ![](https://img.pokemondb.net/sprites/items/x-attack.png) Ataque X 
-Função: Aumenta em **200** pontos o atributos de ataque do pokemon.
+Função: Aumenta em **200** pontos o atributo de *ataque* do pokemon.
 
 Turno de acionamento: 1
 
 ## ![](https://img.pokemondb.net/sprites/items/x-sp-atk.png) Ataque Especial X
-Função: Aumenta em **200** pontos o atributos de ataque especial do pokemon.
+Função: Aumenta em **200** pontos o atributo de *ataqueEspecial* do pokemon.
 
 Turno de acionamento: 1
 
