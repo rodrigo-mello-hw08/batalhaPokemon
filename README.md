@@ -12,11 +12,11 @@ Durante as batalhas, os Pokémons utilizam movimentos para atacar o adversário 
 ___
 # **Parte 1**
 # Pokémon
-Cada Pokémon, obrigatoriamente, deve possuir [Atributos](#Atributos), [Movimentos](#Movimento) e [Tipos](#Tipo) próprios.
+Cada Pokémon, obrigatoriamente, deve possuir [Atributos](#Atributos), [Movimentos](#Movimentos) e [Tipos](#Tipos) próprios.
 
-Além disso, todos eles devem possuir uma implementação própria dos métodos: 
+Além disso, os Pokémons devem possuir os seguintes métodos: 
 ```java
-void falar(); // retorna uma String do próprio nome 
+String falar(); // retorna uma String do próprio nome 
 int calcularDano(Pokemon pokemonAdversario); // retorna o dano que aquele pokemon ira causar ao adversário
 ```
 
