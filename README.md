@@ -105,7 +105,7 @@ Todos os Pokémon possuem atributos iniciais, sendo eles:
 Durante a batalha, o atributos ***pontosDeSaude*** sofrerá alterações a cada ataque que o Pokémon receber de seu adversário.
 
 # Movimentos
-Os Pokémons podem utilizar movimentos durantes as batalhas para causar dano a seus adversários.
+Os Pokémons podem utilizar movimentos durante as batalhas para causar dano a seus adversários.
 
 Todo movimento possui um nível de ***Poder*** (que pode variar entre 0 e 100) e uma categoria **TipoMovimento** (que pode ser ESPECIAL ou FISICO).
 
@@ -220,7 +220,7 @@ No caso de movimentos do tipo especial, o dano é calculado da seguinte maneira:
 ## Importante
 - O dano sempre deve ser um valor inteiro. Em caso de valores não inteiros, arredondar para cima (Exemplo: 5.1 se torna 6).
 - Em caso de empate entre os atributos de velocidade, o pokemon do primeiro treinador informado no construtor da classe **Arena** deve atacar primeiro.
-- A contagem de turnos apenas influencia no uso de itens, ela não determinam o fim da batalha.
+- A contagem de turnos apenas influencia no uso de itens, ela não determina o fim da batalha.
 
 ## Exemplo de calculo de dano durante o turno
 
